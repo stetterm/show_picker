@@ -4,9 +4,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let num_args = args.len();
 
-    if let 0 = num_args {
+    if num_args == 1 {
         panic!("Error: insufficient arguments");
     }
-
-    
 }
