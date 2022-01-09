@@ -13,14 +13,19 @@ fn main() {
         panic!("Error: insufficient arguments");
     }
 
-    let mut titles = list_io::get_list(FILENAME).unwrap();
-    let choice: &str;
+    let io_obj = list_io::IOObject {
+        path: FILENAME
+    };
+    let titles = io_obj.get_list().unwrap();
 
     if let "pick" = &(args[1].to_lowercase())[..] {
-        choice = match titles.choose(&mut rand::thread_rng()) {
+        let choice = match titles.choose(&mut rand::thread_rng()) {
             Some(c) => c,
             None => { panic!("List cannot be empty"); }
         };
         println!("Watch next: {:?}", choice);
+        
+    } else {
+        panic!("Error: invalid argument");
     }
 }
