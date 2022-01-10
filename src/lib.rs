@@ -1,4 +1,6 @@
 use std::fs::File;
+use std::io::prelude::*;
+use std::io::Write;
 
 pub mod list_io {
 
@@ -22,12 +24,11 @@ pub mod list_io {
 
         pub fn write_list(&self, choice: &str, titles: Vec<String>) 
           -> Result<(), std::io::Error> {
-            let mut file = match std::fs::File::open(self.path) {
+            let mut file = match std::fs::File::create(self.path) {
                 Ok(f) => f,
                 Err(e) => { return Err(e); }
             };
             for title in titles {
-                
             }
             Ok(())
         }

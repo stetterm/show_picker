@@ -1,7 +1,7 @@
 use std::env;
 use rand::seq::SliceRandom;
 
-use picker::list_io;
+use show_picker::list_io;
 
 const FILENAME: &str = "anime_list.txt";
 
